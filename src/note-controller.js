@@ -4,18 +4,15 @@
   }
   exports.controllerTest = controllerTest
 
+function NoteController(noteList){
+  this.noteList = noteList
+  this.noteList.add("My Favourite drink is fanta")
+  this.noteListView = new NoteListView(this.noteList);
+}
 
-  function NoteController(noteList){
-      this.noteList = noteList;
-      this.noteList.add("Favourite drink: Seltzer");
-    this.noteListView = new NoteListView(noteList)
-  }
 
-  NoteController.prototype.insertHtmlFromController = function(){    
-    document.getElementById('app').innerHTML = this.noteListView.html();
-  }
-  exports.NoteController = NoteController;
 
+exports.NoteController = NoteController;
 
 
 })(this);
